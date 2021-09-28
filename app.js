@@ -95,25 +95,14 @@ function reset(){
 
     phraseUl.innerHTML = '';
 
-    const keybordPush = qwerty.querySelectorAll('.keyrow');
-
-    console.log("kebord lengt is: ");
-    console.log(keybordPush.length);
+    const keybordPush = qwerty.querySelectorAll('.chosen');
 
     for(let i = 0; i<keybordPush.length; i++ ){
         
-        const row = keybordPush[i].querySelectorAll('button.show');
-        console.log('found shows in this row');
-        console.log(row.length);
-
+        keybordPush[i].className = '';
+        keybordPush[i].disabled = false;
+        
     }
-
-
-  
-    /*for(let i = 0; i< keybordPush.length; i++){
-        console.log(scoreBorad[0].textContent);
-        scoreBorad[0].className = '';
-    }*/
 
 }
 
@@ -126,6 +115,7 @@ qwerty.addEventListener('click',(e)=>{
         //console.log(button.textContent);
         const pressdLett = button.textContent;
         button.className = 'chosen';
+        button.disabled = true;
 
         letterFound = checkLetter(button);
     }
